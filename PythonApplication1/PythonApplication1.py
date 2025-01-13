@@ -3,7 +3,7 @@
 
 # Library import
 import sqlite3
-
+import os
 # Create/Configure Database
 #  - name
 DATABASE_PATH = 'school.db'
@@ -108,3 +108,16 @@ print(cursor.fetchall())
 # - Return all of the names for courses with catergory "programming"
 cursor.execute("SELECT name FROM courses WHERE category=?", ("programming",))
 print(cursor.fetchall())
+
+
+# Connecting to database (added library 'os')
+def connect(path="school.db", sync=False):
+    # - Check database exists
+    if os.path.exists(path):
+        connection = sqlite3.connect(path)
+
+    # Create the database if it doesn't already exist
+    else:
+        syncdb = True
+
+    return connection
