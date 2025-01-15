@@ -41,4 +41,5 @@ connection = connect()
 # - Execution
 insert_row_into_courses(name, category, company_id, connect())
 
-courses_count = connection
+courses_count = connection.execute("SELECT count(id) FROM courses").fetchone()
+print(courses_count)
