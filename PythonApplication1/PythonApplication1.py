@@ -7,7 +7,7 @@ import os
 from unicodedata import category
 # Create/Configure Database
 #  - name
-DATABASE_PATH = 'school1.db'
+DATABASE_PATH = 'school.db'
 
 # - connection path
 connection = sqlite3.connect(DATABASE_PATH)
@@ -114,7 +114,7 @@ print(cursor.fetchall())
 #cursor.close()
 
 # Connecting to database (added library 'os')
-def connect(path="school1.db", syncdb=False):
+def connect(path="school.db", syncdb=False):
     # - Check database exists
     if os.path.exists(path):
         connection = sqlite3.connect(path, timeout=5.0)
