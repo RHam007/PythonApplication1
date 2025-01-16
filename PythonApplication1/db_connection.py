@@ -34,6 +34,7 @@ company_id = input()
 def insert_row_into_courses(name, category, company_id, connection):
     sql = "INSERT INTO courses (name, category, company_id) VALUES (?,?,?)"
     cursor = connection.cursor()
+    #Validation check(s) - if course name exists
     check_exists= cursor.execute("SELECT name FROM courses WHERE name =?",(name,)).fetchone()
     if (check_exists is None):
         cursor.execute(sql, (name, category, company_id))
